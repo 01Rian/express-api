@@ -29,7 +29,7 @@ Esta API oferece um sistema completo de gerenciamento com as seguintes funcional
 
 ```bash
 # Clone este repositório
-git clone [url-do-seu-repositorio]
+git clone https://github.com/01Rian/express-api.git
 
 # Entre no diretório
 cd express-api
@@ -61,21 +61,22 @@ src/
 ## 🔐 Rotas
 
 ### Autenticação
-- `POST /auth/register` - Registro de novo usuário
-- `POST /auth/login` - Login de usuário
-
-### Usuários
-- `GET /users` - Lista todos os usuários
-- `GET /users/:id` - Obtém um usuário específico
-- `PUT /users/:id` - Atualiza um usuário
-- `DELETE /users/:id` - Remove um usuário
+- `POST /signup` - Registro de novo usuário
+- `POST /login` - Login de usuário
 
 ### Produtos
-- `GET /products` - Lista todos os produtos
-- `POST /products` - Cria um novo produto
-- `GET /products/:id` - Obtém um produto específico
-- `PUT /products/:id` - Atualiza um produto
-- `DELETE /products/:id` - Remove um produto
+- `GET /product` - Lista todos os produtos (requer autenticação)
+- `GET /product/:productId` - Obtém um produto específico (requer autenticação)
+- `POST /product` - Cria um novo produto (requer autenticação e permissão de ADMIN)
+- `PATCH /product/:productId` - Atualiza um produto (requer autenticação e permissão de ADMIN)
+- `DELETE /product/:productId` - Remove um produto (requer autenticação e permissão de ADMIN)
+
+### Usuários
+- `GET /user` - Obtém informações do usuário autenticado (requer autenticação)
+- `GET /user/all` - Lista todos os usuários (requer autenticação e permissão de ADMIN)
+- `PATCH /user` - Atualiza informações do usuário autenticado (requer autenticação)
+- `PATCH /user/role` - Altera o papel/role de um usuário (requer autenticação e permissão de ADMIN)
+- `DELETE /user/:id` - Remove um usuário (requer autenticação e permissão de ADMIN)
 
 ## 📄 Licença
 
