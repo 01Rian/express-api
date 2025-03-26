@@ -24,6 +24,14 @@ router.patch('/',
 router.get('/all', 
   [
     isAuthenticatedMiddleware.check,
+    CheckPermissionMiddleware.has(roles.ADMIN)
+  ],
+  UserController.getAllUsers
+);
+
+router.patch('/:userId/role', 
+  [
+    isAuthenticatedMiddleware.check, 
     CheckPermissionMiddleware.has(roles.ADMIN),
     SchemaValidationMiddleware.verify(changeRolePayload),
   ],

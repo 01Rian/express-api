@@ -10,7 +10,7 @@ module.exports = {
       .then((user) => {
         return res.status(200).json({
           status: true,
-          date: user.toJSON(),
+          data: user.toJSON(),
         });
       })
       .catch((err) => {
@@ -102,7 +102,7 @@ module.exports = {
       .then(() => {
         return UserModel.findUser({ id: userId });
       })
-      .then(() => {
+      .then((user) => {
         return res.status(200).json({
           status: true,
           data: user.toJSON(),
